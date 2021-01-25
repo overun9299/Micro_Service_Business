@@ -3,7 +3,7 @@
 <mapper namespace="com.soap.mapper.GoodsMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.soap.entity.Goods">
+    <resultMap id="BaseResultMap" type="com.soap.entity.po.Goods">
         <id column="id" property="id" />
         <result column="img_url" property="imgUrl" />
         <result column="price" property="price" />
