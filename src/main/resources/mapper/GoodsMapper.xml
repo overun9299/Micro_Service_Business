@@ -8,11 +8,12 @@
         <result column="img_url" property="imgUrl" />
         <result column="price" property="price" />
         <result column="title" property="title" />
+        <result column="create_date" property="createDate" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, img_url, price, title
+        id, img_url, price, title, create_date
     </sql>
 
 </mapper>

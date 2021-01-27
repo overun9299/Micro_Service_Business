@@ -1,6 +1,7 @@
 package com.soap.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.soap.commons.ReturnCommons;
@@ -13,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -31,7 +33,9 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public String getGoodsListByPage(GoodsQuery goodsQuery) {
         Page<Goods> page = new Page<>(goodsQuery.getPage(), goodsQuery.getLimit());
-        IPage<Goods> goodsIPage = goodsManager.page(page);
+        QueryWrapper<Goods> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("create_date");
+        IPage<Goods> goodsIPage = goodsManager.page(page , wrapper);
         return ReturnCommons.getSuccess(goodsIPage);
     }
 
@@ -41,6 +45,10 @@ public class GoodsServiceImpl implements GoodsService {
             try {
                 List<Goods> goodsList = JSONArray.parseArray(goods, Goods.class);
                 if (goodsList.size() > 0) {
+                    /** 批量插入时间 **/
+                    goodsList.forEach(good -> {
+                        good.setCreateDate(LocalDateTime.now());
+                    });
                     goodsManager.saveBatch(goodsList);
                     return ReturnCommons.getSuccess();
                 }
