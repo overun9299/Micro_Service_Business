@@ -33,4 +33,10 @@ public class GoodsController {
     public String batchAddGoods(@RequestBody String goods) {
         return goodsService.batchAddGoods(goods);
     }
+
+    @ApiOperation(value = "抢购goods")
+    @RequestMapping(value = "/bugGoods")
+    public String bugGoods(Long personId , Long goodsId ) {
+        return goodsService.bugGoods(personId , goodsId);
+    }
 }

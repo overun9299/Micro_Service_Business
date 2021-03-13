@@ -2,18 +2,18 @@ spring:
   datasource:
     # 基本属性
     name: dev
-    url: jdbc:mysql://192.168.190.130:3306/micro_service_business?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.190.129:3306/micro_service_business?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     password: 263385aA+
   # springCloud
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.190.130:8848
+        server-addr: 192.168.190.129:8848
         ip:
   redis:
     database: 0
-    host: 192.168.190.130
+    host: 192.168.190.129
     port: 6379
     seconds: 43200
     jedis:

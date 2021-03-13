@@ -23,4 +23,12 @@ public interface GoodsService {
      * @return
      */
     String batchAddGoods(String goods);
+
+    /**
+     * 抢购goods
+     * @param personId
+     * @param goodsId
+     * @return
+     */
+    String bugGoods(Long personId, Long goodsId);
 }
