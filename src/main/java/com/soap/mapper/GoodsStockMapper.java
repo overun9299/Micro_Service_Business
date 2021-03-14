@@ -2,6 +2,7 @@ package com.soap.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.soap.entity.po.GoodsStock;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.soap.entity.po.GoodsStock;
  */
 public interface GoodsStockMapper extends BaseMapper<GoodsStock> {
 
+    int inventoryReduction(@Param("goodsId") Long goodsId);
 }

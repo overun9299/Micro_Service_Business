@@ -1,7 +1,7 @@
 package com.soap.manager;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.soap.entity.po.Order;
+import com.soap.entity.po.Orders;
 
 /**
  * <p>
@@ -11,6 +11,7 @@ import com.soap.entity.po.Order;
  * @author ZhangPY
  * @since 2021-03-13
  */
-public interface OrderManager extends IService<Order> {
+public interface OrderManager extends IService<Orders> {
+
 
 }

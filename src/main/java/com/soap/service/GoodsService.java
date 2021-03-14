@@ -31,4 +31,7 @@ public interface GoodsService {
      * @return
      */
     String bugGoods(Long personId, Long goodsId);
+
+    String highConcurrency(Long goodsId);
+
 }

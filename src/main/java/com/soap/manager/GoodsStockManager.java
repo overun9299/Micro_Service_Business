@@ -14,4 +14,5 @@ import com.soap.entity.po.GoodsStock;
  */
 public interface GoodsStockManager extends IService<GoodsStock> {
 
+    int inventoryReduction(Long goodsId);
 }

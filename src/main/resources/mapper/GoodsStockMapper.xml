@@ -13,4 +13,12 @@
         goods_id, stock
     </sql>
 
+
+    <update id="inventoryReduction" parameterType="long">
+        UPDATE goods_stock
+        SET stock = stock - 1
+        WHERE
+            goods_id = #{goodsId}
+          AND stock > 0
+    </update>
 </mapper>

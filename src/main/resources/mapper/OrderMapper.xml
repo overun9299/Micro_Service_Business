@@ -3,7 +3,7 @@
 <mapper namespace="com.soap.mapper.OrderMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.soap.entity.po.Order">
+    <resultMap id="BaseResultMap" type="com.soap.entity.po.Orders">
         <id column="id" property="id" />
         <result column="goods_id" property="goodsId" />
         <result column="goods_title" property="goodsTitle" />

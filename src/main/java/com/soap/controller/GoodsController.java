@@ -39,4 +39,10 @@ public class GoodsController {
     public String bugGoods(Long personId , Long goodsId ) {
         return goodsService.bugGoods(personId , goodsId);
     }
+
+    @ApiOperation(value = "高并发")
+    @RequestMapping(value = "/highConcurrency")
+    public String highConcurrency() {
+        return goodsService.highConcurrency(1l);
+    }
 }

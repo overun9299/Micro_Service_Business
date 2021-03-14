@@ -1,7 +1,7 @@
 package com.soap.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.soap.entity.po.Order;
+import com.soap.entity.po.Orders;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.soap.entity.po.Order;
  * @author ZhangPY
  * @since 2021-03-13
  */
-public interface OrderMapper extends BaseMapper<Order> {
+public interface OrderMapper extends BaseMapper<Orders> {
 
 }
