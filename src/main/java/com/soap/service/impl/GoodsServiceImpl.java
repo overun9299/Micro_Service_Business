@@ -3,6 +3,7 @@ package com.soap.service.impl;
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -79,6 +80,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Transactional
     @Override
+    @DS("mySlave")
     public String bugGoods(Long personId, Long goodsId) {
         if (personId == null || goodsId == null) {
             return ReturnCommons.getFail("参数异常");

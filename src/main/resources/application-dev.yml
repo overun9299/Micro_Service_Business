@@ -1,10 +1,29 @@
 spring:
   datasource:
-    # 基本属性
-    name: dev
-    url: jdbc:mysql://192.168.190.129:3306/micro_service_business?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
-    username: root
-    password: 263385aA+
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则在未匹配到指定数据源时候使用默认数据源
+      datasource:
+        master:
+          url: jdbc:mysql://192.168.190.129:3306/micro_service_business?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+          username: root
+          password: 263385aA+
+        mySlave:
+          url: jdbc:mysql://192.168.190.131:3306/micro_service_business?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+          username: root
+          password: 263385aA+
+
+
+
+
+  #    druid:
+#      # 基本属性
+#      name: dev
+#      url: jdbc:mysql://192.168.190.129:3306/micro_service_business?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+#      username: root
+#      password: 263385aA+
+
+
   # springCloud
   cloud:
     nacos:
@@ -26,3 +45,4 @@ spring:
     testOnBorrow: true
     testWhileIdle: true
     password: 9299
+

@@ -15,7 +15,7 @@ import java.util.concurrent.CountDownLatch;
 public class CountDownLatchConTest {
 
     // 并发数
-    private static final int THREAD_NUM = 500;
+    private static final int THREAD_NUM = 5000;
 
     private static volatile CountDownLatch countDownLatch = new CountDownLatch(THREAD_NUM);
 
@@ -23,17 +23,25 @@ public class CountDownLatchConTest {
 
         for (int i = 0; i < THREAD_NUM; i++) {
             int index = i+1;
+
             new Thread(() -> {
                 /** 所有的线程在这里等待 **/
                 try {
+                    String port = "";
                     countDownLatch.await();
+                    if (index%2 == 0) {
+                        port = "9301";
+                    } else {
+                        port = "9302";
+                    }
+
                     /** 执行业务逻辑 **/
-                    String url = "http://127.0.0.1:9301/ms/business/goods/bugGoods";
+                    String url = "http://127.0.0.1:"+ port +"/ms/business/goods/bugGoods";
                     HashMap<String, Object> requestMap = new HashMap<>();
                     requestMap.put("personId" , index);
                     requestMap.put("goodsId" , 1);
                     String body = HttpUtil.createPost(url).form(requestMap).execute().body();
-                    System.out.println(body);
+                    System.out.println(body.substring(0,12) + "----" + port);
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
